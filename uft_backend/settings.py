@@ -87,7 +87,7 @@ MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
 
 CORS_ALLOWED_ORIGINS = [
     "https://talipovpro.uz",
-    "http://localhost:3000"
+    "http://localhost:5173"
 ]
 
 
