@@ -86,7 +86,8 @@ ROOT_URLCONF = 'uft_backend.urls'
 MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
 
 CORS_ALLOWED_ORIGINS = [
-    "https://tilerpro.uz"
+    "https://talipovpro.uz",
+    "http://localhost:3000"
 ]
 
 
