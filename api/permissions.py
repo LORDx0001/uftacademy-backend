@@ -1,9 +1,16 @@
 from rest_framework import permissions
 
-class IsSuperAdmin(permissions.BasePermission):
-
+class IsSuperAdminOrReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
-        return request.user and request.user.is_superuser
+        if request.user and request.user.is_superuser:
+            return True
+        if request.method in ['POST', 'GET']:
+            return True
+        return False
 
     def has_object_permission(self, request, view, obj):
-        return request.user and request.user.is_superuser
+        if request.user and request.user.is_superuser:
+            return True
+        if request.method in ['POST', 'GET']:
+            return True
+        return False
