@@ -10,6 +10,8 @@ router.register('info', InfoViewSet)
 router.register('contact', ContactViewSet)
 router.register('social-media', SocialMediaViewSet)
 router.register('section-titles', SectionTitleViewSet, basename='section-title')
+router.register('header-section', HeaderSectionViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),
