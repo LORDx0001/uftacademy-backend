@@ -1,8 +1,8 @@
 import requests
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
-from .models import Course, Teacher, PortfolioItem, InfoBlock, ContactMessage, SocialMedia, SectionTitle
-from .serializers import CourseSerializer, TeacherSerializer, PortfolioSerializer, InfoSerializer, ContactSerializer, SocialMediaSerializer, SectionTitleSerializer
+from .models import Course, Teacher, PortfolioItem, InfoBlock, ContactMessage, SocialMedia, SectionTitle, HeaderSection
+from .serializers import CourseSerializer, TeacherSerializer, PortfolioSerializer, InfoSerializer, ContactSerializer, SocialMediaSerializer, SectionTitleSerializer, HeaderSectionSerializer
 from .permissions import IsSuperAdminOrReadOnly
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.response import Response
@@ -104,3 +104,9 @@ class SectionTitleViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
         except SectionTitle.DoesNotExist:
             return Response({'error': 'Not found'}, status=404)
+        
+class HeaderSectionViewSet(viewsets.ModelViewSet):
+    queryset = HeaderSection.objects.all()
+    serializer_class = HeaderSectionSerializer
+    permission_classes = [IsSuperAdminOrReadOnly]
+    http_method_names = ['get']

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Course, Teacher, PortfolioItem, InfoBlock, ContactMessage, SectionTitle, SocialMedia
+from .models import Course, Teacher, PortfolioItem, InfoBlock, ContactMessage, SectionTitle, SocialMedia, HeaderSection
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -42,4 +42,8 @@ class SocialMediaSerializer(serializers.ModelSerializer):
     class Meta:
         model = SocialMedia
         fields = '__all__'
-
+        
+class HeaderSectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HeaderSection
+        fields ='__all__'

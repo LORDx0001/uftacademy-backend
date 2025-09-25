@@ -75,3 +75,15 @@ class SectionTitle(models.Model):
 
     def __str__(self):
         return f"{self.key} → {self.title_ru}"
+
+class HeaderSection(models.Model):
+    title_uz = models.CharField(max_length=200)
+    title_ru = models.CharField(max_length=200)
+    title_en = models.CharField(max_length=200)
+    
+    description_uz = models.TextField()
+    description_ru = models.TextField()
+    description_en = models.TextField() 
+    
+    logo = models.ImageField()
+    
