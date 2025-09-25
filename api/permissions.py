@@ -1,16 +1,19 @@
-from rest_framework import permissions
+# permissions.py
 
-class IsSuperAdminOrReadOnly(permissions.BasePermission):
+from rest_framework.permissions import BasePermission
+
+class IsSuperAdminOrReadOnly(BasePermission):
+    """
+    Superadmin uchun barcha CRUD amallari ruxsat etiladi.
+    Boshqa foydalanuvchilarga faqat GET va POST ruxsat etiladi.
+    """
     def has_permission(self, request, view):
+        # Agar foydalanuvchi superadmin bo'lsa, barcha CRUD amallari ruxsat etiladi
         if request.user and request.user.is_superuser:
             return True
-        if request.method in ['POST', 'GET']:
-            return True
-        return False
 
-    def has_object_permission(self, request, view, obj):
-        if request.user and request.user.is_superuser:
+        # Boshqa foydalanuvchilarga faqat GET va POST ruxsat etiladi
+        if request.method in ['GET', 'POST']:
             return True
-        if request.method in ['POST', 'GET']:
-            return True
+
         return False
