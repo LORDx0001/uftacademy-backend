@@ -8,6 +8,7 @@ from .models import (
     ContactMessage,
     SocialMedia,
     SectionTitle,
+    HeaderSection
 )
 
 # 🔹 КУРСЫ
@@ -22,6 +23,17 @@ class CourseAdmin(admin.ModelAdmin):
         return format_html('<img src="{}" style="max-height:100px;" />', obj.image)
     image_preview.short_description = "Превью"
 
+@admin.register(HeaderSection)
+class HeaderSectionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title_ru', 'logo_preview')
+    readonly_fields = ('logo_preview',)
+
+    def logo_preview(self, obj):
+        if obj.logo:
+            return f'<img src="{obj.logo.url}" style="height:50px;" />'
+        return "-"
+    logo_preview.allow_tags = True
+    logo_preview.short_description = "Превью логотипа"
 
 # 🔹 ПРЕПОДАВАТЕЛИ
 @admin.register(Teacher)
