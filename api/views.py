@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from .models import Course, Teacher, PortfolioItem, InfoBlock, ContactMessage
 from .serializers import *
 from rest_framework.permissions import AllowAny
+from .permissions import IsSuperAdmin
 
 TELEGRAM_BOT_TOKEN = 'your_bot_token'
 TELEGRAM_CHAT_ID = 'your_chat_id'
@@ -10,18 +11,25 @@ TELEGRAM_CHAT_ID = 'your_chat_id'
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
+    permission_classes = [IsSuperAdmin]
 
 class TeacherViewSet(viewsets.ModelViewSet):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
+    permission_classes = [IsSuperAdmin]
+    
 
 class PortfolioViewSet(viewsets.ModelViewSet):
     queryset = PortfolioItem.objects.all()
     serializer_class = PortfolioSerializer
+    permission_classes = [IsSuperAdmin]
+    
 
 class InfoViewSet(viewsets.ModelViewSet):
     queryset = InfoBlock.objects.all()
     serializer_class = InfoSerializer
+    permission_classes = [IsSuperAdmin]
+    
 
 
 class ContactViewSet(viewsets.ModelViewSet):
@@ -46,7 +54,11 @@ class ContactViewSet(viewsets.ModelViewSet):
 class SocialMediaViewSet(viewsets.ModelViewSet):
     queryset = SocialMedia.objects.filter(is_active=True)
     serializer_class = SocialMediaSerializer
+    permission_classes = [IsSuperAdmin]
+    
     
 class SectionTitleViewSet(viewsets.ModelViewSet):
     queryset = SectionTitle.objects.all()
     serializer_class = SectionTitleSerializer
+    permission_classes = [IsSuperAdmin]
+    
