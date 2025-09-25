@@ -15,24 +15,32 @@ class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
     permission_classes = [IsSuperAdminOrReadOnly]
+    http_method_names = ['get']
+    
 
 # TeacherViewSet
 class TeacherViewSet(viewsets.ModelViewSet):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
     permission_classes = [IsSuperAdminOrReadOnly]
+    http_method_names = ['get']
+    
 
 # PortfolioViewSet
 class PortfolioViewSet(viewsets.ModelViewSet):
     queryset = PortfolioItem.objects.all()
     serializer_class = PortfolioSerializer
     permission_classes = [IsSuperAdminOrReadOnly]
+    http_method_names = ['get']
+    
 
 # InfoViewSet
 class InfoViewSet(viewsets.ModelViewSet):
     queryset = InfoBlock.objects.all()
     serializer_class = InfoSerializer
     permission_classes = [IsSuperAdminOrReadOnly]
+    http_method_names = ['get']
+    
 
 # ContactViewSet
 class ContactViewSet(viewsets.ModelViewSet):
@@ -77,9 +85,13 @@ class SocialMediaViewSet(viewsets.ModelViewSet):
     queryset = SocialMedia.objects.filter(is_active=True)
     serializer_class = SocialMediaSerializer
     permission_classes = [IsSuperAdminOrReadOnly]
+    http_method_names = ['get']
+    
 
 # SectionTitleViewSet
 class SectionTitleViewSet(viewsets.ModelViewSet):
     queryset = SectionTitle.objects.all()
     serializer_class = SectionTitleSerializer
     permission_classes = [IsSuperAdminOrReadOnly]
+    http_method_names = ['get']
+    
