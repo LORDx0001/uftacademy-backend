@@ -9,7 +9,7 @@ router.register('portfolio', PortfolioViewSet)
 router.register('info', InfoViewSet)
 router.register('contact', ContactViewSet)
 router.register('social-media', SocialMediaViewSet)
-router.register('section-titles', SectionTitleViewSet)
+router.register('section-titles', SectionTitleViewSet, basename='section-title')
 
 urlpatterns = [
     path('', include(router.urls)),

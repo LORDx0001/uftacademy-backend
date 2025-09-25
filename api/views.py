@@ -6,6 +6,7 @@ from .serializers import CourseSerializer, TeacherSerializer, PortfolioSerialize
 from .permissions import IsSuperAdminOrReadOnly
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 TELEGRAM_BOT_TOKEN = 'your_bot_token'
 TELEGRAM_CHAT_ID = 'your_chat_id'
@@ -95,3 +96,11 @@ class SectionTitleViewSet(viewsets.ModelViewSet):
     permission_classes = [IsSuperAdminOrReadOnly]
     http_method_names = ['get']
     
+    @action(detail=False, url_path='by-key/(?P<key>[^/.]+)', methods=['get'])
+    def retrieve_by_key(self, request, key=None):
+        try:
+            section = SectionTitle.objects.get(key=key)
+            serializer = self.get_serializer(section)
+            return Response(serializer.data)
+        except SectionTitle.DoesNotExist:
+            return Response({'error': 'Not found'}, status=404)
