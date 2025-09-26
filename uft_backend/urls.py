@@ -26,6 +26,7 @@ urlpatterns = [
     path('api/', include('contact.urls')),
     path('api/', include('footer.urls')),  # ⬅️ Footer app
     path('api/', include('header.urls')),
+    path('api/', include('title.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
