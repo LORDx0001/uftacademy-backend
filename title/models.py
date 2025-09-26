@@ -1,6 +1,6 @@
 from django.db import models
 
-class Titles(models.Model):
+class Title(models.Model):
     
     key = models.CharField(max_length=200, verbose_name="keys")
     title_uz = models.CharField(max_length=255, verbose_name="Заголовок (UZ)")
