@@ -2,7 +2,7 @@ from django.db import models
 
 class Header(models.Model):
     logo = models.ImageField(upload_to="header/", verbose_name="Логотип")
-
+    background = models.ImageField(upload_to="header/", verbose_name="Фон")
     title_uz = models.CharField(max_length=255, verbose_name="Заголовок (UZ)")
     title_ru = models.CharField(max_length=255, verbose_name="Заголовок (RU)")
     title_en = models.CharField(max_length=255, verbose_name="Заголовок (EN)")
