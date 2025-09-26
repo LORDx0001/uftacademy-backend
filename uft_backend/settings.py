@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "contact",
     "footer",
     'header',
+    'title',
     'corsheaders',
     'drf_yasg',
 ]
