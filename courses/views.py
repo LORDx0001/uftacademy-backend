@@ -6,3 +6,5 @@ from .serializers import CourseSerializer
 class CourseViewSet(ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
+    
+    http_method_names = ['get']

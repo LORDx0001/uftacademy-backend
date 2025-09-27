@@ -6,3 +6,6 @@ from .serializers import AboutSerializer
 class AboutViewSet(ModelViewSet):
     queryset = About.objects.all()
     serializer_class = AboutSerializer
+    
+    http_method_names = ['get']
+    

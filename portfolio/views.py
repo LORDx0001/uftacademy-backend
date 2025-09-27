@@ -6,3 +6,5 @@ from .serializers import PortfolioSerializer
 class PortfolioViewSet(ModelViewSet):
     queryset = Portfolio.objects.all()
     serializer_class = PortfolioSerializer
+
+    http_method_names = ['get']

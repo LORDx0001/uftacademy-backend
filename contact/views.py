@@ -6,3 +6,5 @@ from .serializers import ContactSerializer
 class ContactViewSet(ModelViewSet):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
+    
+    http_method_names = ['get', 'post']

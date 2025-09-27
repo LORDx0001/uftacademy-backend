@@ -5,3 +5,5 @@ from . serializers import TitleSerializer
 class TitleViewSet(ModelViewSet):
     queryset = Title.objects.all()
     serializer_class = TitleSerializer
+    
+    http_method_names = ['get']
